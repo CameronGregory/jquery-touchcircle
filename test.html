@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test for touchcircle</title>
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1">
+<script src="jquery-2.2.1.min.js"></script>
+<script src="jquery.touchcircle.js"></script>
+<style>
+.test {
+	border: 10px solid black;
+	margin: 7px;
+	padding: 7px;
+	width:300px;
+	height:300px;
+}
+</style>
+
+</head>
+<body>
+<h3>test</h3>
+<table><tr><td>asd</td><td>
+<div class="test">
+<canvas id="c" style="width:100%;height:100%"/>
+</div>
+</td></tr></table>
+<script>
+$(".test").touchCircle({radius:50});
+
+$(".test").bind("touchstart",function(e) {e.preventDefault();});
+$(".test").bind("touchmove",function(e) {e.preventDefault();});
+$(".test").bind("touchend",function(e) {e.preventDefault();});
+$("#c").bind("touchmove",function(e) {
+var canvas = e.element;
+var ctx = canvas.getContext("2d");
+var ct = e.originalEvent.changedTouches;
+var x = ct[0].clientX;
+var y = ct[0].clientY;
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(x-5,y-5,x+5,y+5);
+});
+</script>
+</body>
+</html>
