@@ -21,7 +21,8 @@
 		};
 		var pluginName = "touchCircle",
 			defaults = {
-				radius: 20,
+				enabled: true,
+				radius: 50,
 				createTouchDiv: createTouchDiv
 			};
 
@@ -35,6 +36,8 @@
 
 		$.extend( TouchCircle.prototype, {
 			init: function() {
+				if (!this.settings.enabled)
+					return;
 				var e =  $(this.element);
 				var overlay = $("<div class='touchcircle_overlay'></div").appendTo(e);
 				var touchDivs = {};
