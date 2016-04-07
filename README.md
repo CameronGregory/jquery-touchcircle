@@ -9,8 +9,8 @@ Display indicators for touch events. Particularly useful for video captures.
       </head>
       <body>
         ...
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-        <script src="jquery.touchcircle.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script src="dist/jquery.touchcircle.js"></script>
         <script type="text/javascript">
           $(function() { $("body").touchCircle() } )
         </script>
