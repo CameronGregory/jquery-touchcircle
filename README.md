@@ -1,4 +1,5 @@
-# jQuery Touch Circle
+# jQuery Touch Circle [![Build Status](https://secure.travis-ci.org/camerongregory/jquery-touchcircle.svg?branch=master)](https://travis-ci.org/camerongregory/jquery-touchcircle)
+
 Display indicators for touch events. Particularly useful for video captures.
 
 ## Usage ##
