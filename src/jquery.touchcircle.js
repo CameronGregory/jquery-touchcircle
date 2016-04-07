@@ -23,6 +23,7 @@
 			defaults = {
 				enabled: true,
 				radius: 50,
+				zindex: 10,
 				createTouchDiv: createTouchDiv
 			};
 
@@ -36,14 +37,15 @@
 
 		$.extend( TouchCircle.prototype, {
 			init: function() {
-				if (!this.settings.enabled)
+				if (!this.settings.enabled) {
 					return;
+				}
 				var e =  $(this.element);
 				var overlay = $("<div class='touchcircle_overlay'></div").appendTo(e);
 				var touchDivs = {};
 				var offset = e.offset();
-				this.left = e.offset().left + parseInt(e.css("border-left-width")) + parseInt(e.css("padding-left"));
-				this.top = e.offset().top + parseInt(e.css("border-top-width")) + parseInt(e.css("padding-top"));
+				this.left = offset.left + parseInt(e.css("border-left-width")) + parseInt(e.css("padding-left"));
+				this.top = offset.top + parseInt(e.css("border-top-width")) + parseInt(e.css("padding-top"));
 
 				overlay.css("position","absolute");
 				overlay.css("left",this.left);
@@ -52,12 +54,13 @@
 				overlay.css("height",e.height());
 				//overlay.css("background","#f00");
 				overlay.css("pointer-events","none");
+				overlay.css("z-index",this.settings.zindex);
 				//overlay.css("opacity",0.5);
 				var data = {this:this,element:e,overlay:overlay,touchDivs:touchDivs};
                         	e.bind("touchstart",data,this.touchStartFn);
                         	e.bind("touchmove",data,this.touchMoveFn);
                         	e.bind("touchend",data,this.touchEndFn);
-                        	e.bind("mousemove",data,this.mouseMoveFn);
+                        	//e.bind("mousemove",data,this.mouseMoveFn);
 			},
 			touchStartFn: function(event) {
 				console.log("touch start:");
@@ -83,7 +86,7 @@
 			touchMoveFn: function(event) {
 				console.log("touch move:");
 				var me = event.data.this;
-				var touchDivs = event.data.touchDivs;
+				//var touchDivs = event.data.touchDivs;
 				var settings = event.data.this.settings;
 				var ct = event.originalEvent.changedTouches;
 				var left = me.left;
@@ -98,23 +101,23 @@
 			},
 			touchEndFn: function(event) {
 				console.log("touch end:");
-				var me = event.data.this;
-				var touchDivs = event.data.touchDivs;
-				var settings = event.data.this.settings;
+				//var me = event.data.this;
+				//var touchDivs = event.data.touchDivs;
+				//var settings = event.data.this.settings;
 				var ct = event.originalEvent.changedTouches;
 				for (var i =0;i<ct.length;i++) {
 					var e1 = ct[i];
 					var id = "tc_"+ e1.identifier;
-					var touchPointDiv = $("#"+id).remove();
+					$("#"+id).remove();
 				}
-			},
-			mouseMoveFn: function(event) {
-				console.log("mm:");
-				var me = event.data.this;
+			}
+			//mouseMoveFn: function(event) {
+				//console.log("mm:");
+				//var me = event.data.this;
 				// var touchDivs = event.data.touchDivs;
 				// touchDivs[0].css("left",event.offsetX-me.settings.radius);
 				// touchDivs[0].css("top",event.offsetY-me.settings.radius);
-			}
+			//}
 		} );
 
 

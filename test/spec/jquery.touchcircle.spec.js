@@ -41,41 +41,37 @@
 		);
 	} );
 
-	QUnit.test( "enable custom config", function( assert ) {
+	QUnit.test( "enable custom radius", function( assert ) {
 		$fixture.touchCircle( {
-			foo: "bar"
+			radius: 20
 		} );
 
 		var pluginData = $fixture.data( "plugin_touchCircle" );
 
-		assert.deepEqual(
-			pluginData.settings,
-			{
-				propertyName: "value",
-				foo: "bar"
-			},
+		assert.equal(
+			pluginData.settings.radius,20,
 			"extend plugin settings"
 		);
 
 	} );
 
-	QUnit.test( "changes the element text", function( assert ) {
-		$fixture.touchCircle();
+	//QUnit.test( "changes the element text", function( assert ) {
+		//$fixture.touchCircle();
+//
+		//assert.equal( $fixture.text(), "jQuery TouchCircle" );
+	//} );
 
-		assert.equal( $fixture.text(), "jQuery TouchCircle" );
-	} );
-
-	QUnit.test(
-		"has #yourOtherFunction working as expected",
-		function( assert ) {
-			$fixture.touchCircle();
-
-			var instance = $fixture.data( "plugin_touchCircle" ),
-				expectedText = "foobar";
-
-			instance.yourOtherFunction( expectedText );
-			assert.equal( $fixture.text(), expectedText );
-		}
-	);
+	//QUnit.test(
+		//"has #yourOtherFunction working as expected",
+		//function( assert ) {
+			//$fixture.touchCircle();
+//
+			//var instance = $fixture.data( "plugin_touchCircle" ),
+				//expectedText = "foobar";
+//
+			//instance.yourOtherFunction( expectedText );
+			//assert.equal( $fixture.text(), expectedText );
+		//}
+	//);
 
 }( jQuery, QUnit ) );
