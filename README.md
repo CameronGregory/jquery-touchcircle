@@ -34,4 +34,4 @@ Display indicators for touch events. Particularly useful for video captures.
       }
     })
 ## Demo ##
-	[Demo (http://cdn.rawgit.com/camerongregory/jquery-touchcirle/demo/test.html)
+	[Demo](http://cdn.rawgit.com/camerongregory/jquery-touchcirle/demo/test.html)
