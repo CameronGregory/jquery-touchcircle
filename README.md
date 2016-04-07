@@ -1,5 +1,5 @@
 # jQuery Touch Circle
-Display indicators for touch events. Particular useful for video captures.
+Display indicators for touch events. Particularly useful for video captures.
 
 ## Usage ##
     <html>
@@ -33,3 +33,5 @@ Display indicators for touch events. Particular useful for video captures.
         return touchPointDiv;
       }
     })
+## Demo ##
+	[Demo (http://cdn.rawgit.com/camerongregory/jquery-touchcirle/demo/test.html)
