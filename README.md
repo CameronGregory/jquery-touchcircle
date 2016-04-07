@@ -2,7 +2,28 @@
 
 Display indicators for touch events. Particularly useful for video captures.
 
-## Usage ##
+## Usage
+
+1. Include jQuery:
+
+	```html
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+	```
+
+2. Include plugin's code:
+
+	```html
+	<script src="dist/jquery.touchcircle.min.js"></script>
+	```
+
+3. Call the plugin:
+
+	```javascript
+	$("body").touchCircle({
+		radius: 40
+	});
+	```
+## Example ##
     <html>
       <head>
         <title>TouchCircle Test</title>
